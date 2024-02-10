@@ -48,7 +48,7 @@ public class Manager {
         taskCount += 1;
         int taskId = taskCount;
         epic.setTaskId(taskId);
-        epic.setStatus(TaskStatus.NEW); //подумать
+        epic.setStatus(TaskStatus.NEW);
         epics.put(taskId, epic);
     }
 
