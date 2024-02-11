@@ -1,8 +1,8 @@
 import java.util.Objects;
 
 public class Task {
-    String name;
-    String description;
+    private String name;
+    private String description;
     private int taskId;
     private TaskStatus status;
 

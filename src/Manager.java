@@ -28,7 +28,7 @@ public class Manager {
     }
 
     public ArrayList<Subtask> getEpicSubtasks(int taskId) {
-        ArrayList<Integer> epicSubtasksId = epics.get(taskId).subtasksId;
+        ArrayList<Integer> epicSubtasksId = epics.get(taskId).getSubtasksId();
         ArrayList<Subtask> epicSubtasks = new ArrayList<>();
         for (int id : epicSubtasksId) {
             epicSubtasks.add(subtasks.get(id));
@@ -57,8 +57,8 @@ public class Manager {
         int taskId = taskCount;
         subtask.setTaskId(taskId);
         subtasks.put(taskId, subtask);
-        Epic epic = epics.get(subtask.epicId);
-        epic.subtasksId.add(taskId);
+        Epic epic = epics.get(subtask.getEpicId());
+        epic.getSubtasksId().add(taskId);
 
     }
 
@@ -72,7 +72,7 @@ public class Manager {
 
     public void updateSubtask(Subtask subtask) {
         subtasks.put(subtask.getTaskId(), subtask);
-        int epicId = subtask.epicId;
+        int epicId = subtask.getEpicId();
         ArrayList<Subtask> epicSubtasks = getEpicSubtasks(epicId);
         if (epicSubtasks.isEmpty()) {
             epics.get(epicId).setStatus(TaskStatus.NEW);
