@@ -6,7 +6,7 @@ public class Main {
 
         System.out.println("Поехали!");
 
-        Manager manager = new Manager();
+        TaskManager manager = Managers.getDefault();
         Task task1 = new Task("Покормить кота", "Дать коту 20 грамм корма", 1, TaskStatus.NEW);
         ArrayList<Integer> epic1SUbtasks = new ArrayList<>();
         Epic epic1 = new Epic("Эпик 1", "Описание 1", 1, TaskStatus.NEW, epic1SUbtasks);
@@ -31,6 +31,7 @@ public class Main {
 
         //вносим изменения в сабтаск, проверяем статус эпика
         System.out.println("Epic 2: " + manager.getEpic(3));
+        ((InMemoryTaskManager)manager).getHistory();
         Subtask subtask4 = new Subtask("Саб 1", "Описание саб 1", 4, TaskStatus.IN_PROGRESS, 3);
         manager.updateSubtask(subtask4);
         System.out.println("Epic 2: " + manager.getEpic(3));
@@ -38,7 +39,12 @@ public class Main {
         //удаляем таски
         manager.removeSubtask(5);
         System.out.println(manager.getAllSubtasks());
-        manager.removeAllEpics();
-        System.out.println(manager.getAllEpics());
+
+        //проверяем историю просмотров
+        manager.getTask(0);
+        manager.getEpic(3);
+        System.out.println(((InMemoryTaskManager)manager).getHistory());
+
+
     }
 }

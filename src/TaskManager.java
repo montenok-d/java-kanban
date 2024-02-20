@@ -22,11 +22,11 @@ public interface TaskManager {
 
     void updateSubtask(Subtask subtask);
 
-    Collection<Task> getAllTasks();
+    ArrayList<Task> getAllTasks();
 
-    Collection<Epic> getAllEpics();
+    ArrayList<Epic> getAllEpics();
 
-    Collection<Subtask> getAllSubtasks();
+    ArrayList<Subtask> getAllSubtasks();
 
     void removeAllTasks();
 
