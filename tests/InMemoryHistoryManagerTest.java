@@ -23,4 +23,14 @@ class InMemoryHistoryManagerTest {
         assertNotNull(history, "История не пустая.");
         assertEquals(1, history.size(), "История не пустая.");
     }
+
+    @Test
+    void removeTaskAndGetHistory() {
+        historyManager.add(task);
+        historyManager.remove(task.getTaskId());
+        List<Task> history = historyManager.getHistory();
+        assertEquals(0, history.size(), "История пустая.");
+    }
+
+
 }
