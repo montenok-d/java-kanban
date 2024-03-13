@@ -1,11 +1,11 @@
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 
 public class InMemoryTaskManager implements TaskManager, HistoryManager {
-    private HashMap<Integer, Task> tasks;
-    private HashMap<Integer, Epic> epics;
-    private HashMap<Integer, Subtask> subtasks;
+    private final HashMap<Integer, Task> tasks;
+    private final HashMap<Integer, Epic> epics;
+    private final HashMap<Integer, Subtask> subtasks;
     HistoryManager inMemoryHistoryManager = Managers.getDefaultHistory();
 
 
@@ -148,16 +148,19 @@ public class InMemoryTaskManager implements TaskManager, HistoryManager {
 
     @Override
     public void removeTask(int taskId) {
+        remove(taskId);
         tasks.remove(taskId);
     }
 
     @Override
     public void removeEpic(int taskId) {
+        remove(taskId);
         epics.remove(taskId);
     }
 
     @Override
     public void removeSubtask(int taskId) {
+        remove(taskId);
         subtasks.remove(taskId);
     }
 
@@ -167,8 +170,13 @@ public class InMemoryTaskManager implements TaskManager, HistoryManager {
     }
 
     @Override
-    public ArrayList<Task> getHistory() {
-        ArrayList<Task> history = inMemoryHistoryManager.getHistory();
+    public void remove(int id) {
+        inMemoryHistoryManager.remove(id);
+    }
+
+    @Override
+    public List<Task> getHistory() {
+        List<Task> history = inMemoryHistoryManager.getHistory();
         return history;
     }
 }
