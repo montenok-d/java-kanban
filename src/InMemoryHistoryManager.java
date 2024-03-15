@@ -43,7 +43,7 @@ public class InMemoryHistoryManager implements HistoryManager {
         }
     }
 
-    public static class CustomLinkedList<T> {
+    private static class CustomLinkedList<T> {
 
         private Node<T> head;
         private Node<T> tail;
