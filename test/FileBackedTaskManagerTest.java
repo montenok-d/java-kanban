@@ -18,7 +18,7 @@ public class FileBackedTaskManagerTest {
         ArrayList<Integer> epic1SUbtasks = new ArrayList<>();
         Epic epic1 = new Epic("Эпик 1", "Описание 1", 1, TaskStatus.NEW, epic1SUbtasks);
         Epic epic2 = new Epic("Эпик 2", "Описание 2", 1, TaskStatus.NEW, epic1SUbtasks);
-        Subtask subtask1 = new Subtask("Саб 1", "Описание саб 1",1, TaskStatus.NEW, 2);
+        Subtask subtask1 = new Subtask("Саб 1", "Описание саб 1", 1, TaskStatus.NEW, 2);
         Subtask subtask2 = new Subtask("Саб 2", "Описание саб 2", 1, TaskStatus.NEW, 3);
         fileBackedTaskManager.createTask(task1);
         fileBackedTaskManager.createEpic(epic1);
@@ -28,7 +28,7 @@ public class FileBackedTaskManagerTest {
     }
 
     @Test
-    void shouldRestoreTasks(){
+    void shouldRestoreTasks() {
         List<Task> allTasks = fileBackedTaskManager.getAllTasks();
         fileBackedTaskManager = fileBackedTaskManager.loadFromFile(fileBackedTaskManager.pathToFile);
         List<Task> loadedTasks = fileBackedTaskManager.getAllTasks();
@@ -36,7 +36,7 @@ public class FileBackedTaskManagerTest {
     }
 
     @Test
-    void shouldRestoreEpics(){
+    void shouldRestoreEpics() {
         List<Epic> allTasks = fileBackedTaskManager.getAllEpics();
         fileBackedTaskManager = fileBackedTaskManager.loadFromFile(fileBackedTaskManager.pathToFile);
         List<Epic> loadedTasks = fileBackedTaskManager.getAllEpics();
@@ -44,7 +44,7 @@ public class FileBackedTaskManagerTest {
     }
 
     @Test
-    void shouldRestoreSubtasks(){
+    void shouldRestoreSubtasks() {
         List<Subtask> allTasks = fileBackedTaskManager.getAllSubtasks();
         fileBackedTaskManager = fileBackedTaskManager.loadFromFile(fileBackedTaskManager.pathToFile);
         List<Subtask> loadedTasks = fileBackedTaskManager.getAllSubtasks();

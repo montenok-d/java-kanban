@@ -95,7 +95,7 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
                     } else if (task.getType() == TaskType.EPIC) {
                         fileBackedTaskManager.epics.put(task.getTaskId(), (Epic) task);
                         fileBackedTaskManager.allTasks.put(task.getTaskId(), task);
-                    } else if (task.getType() == TaskType.TASK){
+                    } else if (task.getType() == TaskType.TASK) {
                         fileBackedTaskManager.tasks.put(task.getTaskId(), task);
                         fileBackedTaskManager.allTasks.put(task.getTaskId(), task);
                     }
@@ -110,10 +110,10 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
                 fileBackedTaskManager.epics.get(subtask.getEpicId()).setSubtasksId(epicSubtasks);
             }
             if (!linesFromFile.getLast().isBlank()) {
-               List<Integer> historyIds = historyFromString(linesFromFile.getLast());
-               for (Integer e : historyIds.reversed()) {
-                   fileBackedTaskManager.add(fileBackedTaskManager.allTasks.get(e));
-               }
+                List<Integer> historyIds = historyFromString(linesFromFile.getLast());
+                for (Integer e : historyIds.reversed()) {
+                    fileBackedTaskManager.add(fileBackedTaskManager.allTasks.get(e));
+                }
             }
             return fileBackedTaskManager;
         } catch (IOException e) {
@@ -140,7 +140,7 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
     }
 
     @Override
-    public void updateTask(Task task){
+    public void updateTask(Task task) {
         super.updateTask(task);
         save();
     }
@@ -202,7 +202,7 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
         ArrayList<Integer> epic1SUbtasks = new ArrayList<>();
         Epic epic1 = new Epic("Эпик 1", "Описание 1", 1, TaskStatus.NEW, epic1SUbtasks);
         Epic epic2 = new Epic("Эпик 2", "Описание 2", 1, TaskStatus.NEW, epic1SUbtasks);
-        Subtask subtask1 = new Subtask("Саб 1", "Описание саб 1",1, TaskStatus.NEW, 2);
+        Subtask subtask1 = new Subtask("Саб 1", "Описание саб 1", 1, TaskStatus.NEW, 2);
         Subtask subtask2 = new Subtask("Саб 2", "Описание саб 2", 1, TaskStatus.NEW, 3);
         Subtask subtask3 = new Subtask("Саб 3", "Описание саб 3", 1, TaskStatus.NEW, 3);
         Task task2 = new Task("Task2", "2", 1, TaskStatus.NEW);
@@ -218,11 +218,11 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
 
         //вносим изменения в сабтаск, проверяем статус эпика
         System.out.println("Epic 2: " + fileBackedTaskManager.getEpic(3));
-        System.out.println("History" + ((InMemoryTaskManager)fileBackedTaskManager).getHistory());
+        System.out.println("History" + ((InMemoryTaskManager) fileBackedTaskManager).getHistory());
         Subtask subtask4 = new Subtask("Саб 1", "Описание саб 1", 4, TaskStatus.IN_PROGRESS, 3);
         fileBackedTaskManager.updateSubtask(subtask4);
         System.out.println("Epic 2: " + fileBackedTaskManager.getEpic(3));
-        System.out.println("History" + ((InMemoryTaskManager)fileBackedTaskManager).getHistory());
+        System.out.println("History" + ((InMemoryTaskManager) fileBackedTaskManager).getHistory());
         System.out.println(fileBackedTaskManager.getAllEpics());
         System.out.println(fileBackedTaskManager.getAllTasks());
         System.out.println(fileBackedTaskManager.getAllSubtasks());
