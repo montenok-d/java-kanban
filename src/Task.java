@@ -1,10 +1,10 @@
 import java.util.Objects;
 
 public class Task {
-    private String name;
-    private String description;
+    protected String name;
+    protected String description;
     private int taskId;
-    private TaskStatus status;
+    protected TaskStatus status;
 
     public Task(String name, String description, int taskId, TaskStatus status) {
         this.name = name;
@@ -43,13 +43,13 @@ public class Task {
         this.status = status;
     }
 
+    public TaskType getType() {
+        return TaskType.TASK;
+    }
+
     @Override
     public String toString() {
-        return "Task{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", taskId=" + taskId +
-                ", status=" + status +
-                '}';
+        return getTaskId() + "," + TaskType.TASK + "," + name + "," + status + ","
+                + description + ",";
     }
 }
