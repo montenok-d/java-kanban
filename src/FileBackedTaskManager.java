@@ -8,7 +8,7 @@ import java.util.List;
 
 public class FileBackedTaskManager extends InMemoryTaskManager {
 
-    private final String pathToFile = "src/dataHistoryTask.csv";
+    final String pathToFile = "src/dataHistoryTask.csv";
     private static final String HEADER = "id,type,name,status,description,epic";
     private final HashMap<Integer, Task> allTasks = new HashMap<>();
 
@@ -136,6 +136,7 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
     @Override
     public void createSubtask(Subtask subtask) {
         super.createSubtask(subtask);
+        save();
     }
 
     @Override
