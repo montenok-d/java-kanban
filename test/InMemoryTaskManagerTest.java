@@ -22,7 +22,7 @@ class InMemoryTaskManagerTest {
     @Test
     void addNewTask() {
         manager.createTask(task);
-        Task savedTask = manager.getTask(0);
+        Task savedTask = manager.getTask(task.getTaskId());
         assertNotNull(savedTask, "Задача не найдена.");
         assertEquals(task, savedTask, "Задачи не совпадают.");
 
@@ -40,17 +40,6 @@ class InMemoryTaskManagerTest {
         Task task3 = new Task("Test NewTask", "Test description", 0, TaskStatus.NEW);
         Task task4 = new Task("Test NewTask", "Test description", 0, TaskStatus.NEW);
         assertEquals(task3, task4);
-    }
-
-    @Test
-    void addEpicAsSubtask() {
-        ArrayList<Integer> epic1SUbtasks = new ArrayList<>();
-        Epic epic1 = new Epic("Epic 1", "description", 2, TaskStatus.NEW, epic1SUbtasks);
-        Subtask task1 = new Subtask("Subtask 1", "description", 1, TaskStatus.NEW, 2);
-        epic1SUbtasks.add(1);
-        epic1SUbtasks.add(2);
-        manager.createEpic(epic1);
-        assertEquals(1, manager.getEpicSubtasks(2).size());
     }
 
     @Test

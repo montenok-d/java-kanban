@@ -178,4 +178,16 @@ public class InMemoryTaskManager implements TaskManager, HistoryManager {
     public List<Task> getHistory() {
         return inMemoryHistoryManager.getHistory();
     }
+
+    public HashMap<Integer, Task> getTasks() {
+        return tasks;
+    }
+
+    public HashMap<Integer, Epic> getEpics() {
+        return epics;
+    }
+
+    public HashMap<Integer, Subtask> getSubtasks() {
+        return subtasks;
+    }
 }
