@@ -3,9 +3,9 @@ import java.util.HashMap;
 import java.util.List;
 
 public class InMemoryTaskManager implements TaskManager, HistoryManager {
-    protected final HashMap<Integer, Task> tasks;
-    protected final HashMap<Integer, Epic> epics;
-    protected final HashMap<Integer, Subtask> subtasks;
+    private final HashMap<Integer, Task> tasks;
+    private final HashMap<Integer, Epic> epics;
+    private final HashMap<Integer, Subtask> subtasks;
     HistoryManager inMemoryHistoryManager = Managers.getDefaultHistory();
 
 
@@ -177,5 +177,17 @@ public class InMemoryTaskManager implements TaskManager, HistoryManager {
     @Override
     public List<Task> getHistory() {
         return inMemoryHistoryManager.getHistory();
+    }
+
+    public HashMap<Integer, Task> getTasks() {
+        return tasks;
+    }
+
+    public HashMap<Integer, Epic> getEpics() {
+        return epics;
+    }
+
+    public HashMap<Integer, Subtask> getSubtasks() {
+        return subtasks;
     }
 }
