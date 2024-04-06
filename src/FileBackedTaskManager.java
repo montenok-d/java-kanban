@@ -2,6 +2,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 public class FileBackedTaskManager extends InMemoryTaskManager {
 
     final String pathToFile = "src/dataHistoryTask.csv";
-    private static final String HEADER = "id,type,name,status,description,epic";
+    private static final String HEADER = "id,type,name,status,description,duration, startTime, epic";
     private final HashMap<Integer, Task> allTasks = new HashMap<>();
 
     public FileBackedTaskManager() {
@@ -23,15 +24,17 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
         String name = taskString[2];
         TaskStatus status = TaskStatus.valueOf(taskString[3]);
         String description = taskString[4];
+        int duration = Integer.parseInt(taskString[5]);
+        LocalDateTime startTime = LocalDateTime.parse(taskString[6]);
         switch (type) {
             case TASK:
-                return new Task(name, description, id, status);
+                return new Task(name, description, id, status, duration, startTime);
             case EPIC:
                 ArrayList<Integer> epicSubtasks = new ArrayList<>();
-                return new Epic(name, description, id, status, epicSubtasks);
+                return new Epic(name, description, id, status, duration, startTime, epicSubtasks);
             case SUBTASK:
-                int epicId = Integer.parseInt(taskString[5]);
-                return new Subtask(name, description, id, status, epicId);
+                int epicId = Integer.parseInt(taskString[7]);
+                return new Subtask(name, description, id, status, duration, startTime, epicId);
         }
         return null;
     }
@@ -196,16 +199,16 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
     public static void main(String[] args) {
 
         FileBackedTaskManager fileBackedTaskManager = new FileBackedTaskManager();
-        fileBackedTaskManager = fileBackedTaskManager.loadFromFile(fileBackedTaskManager.pathToFile);
+        //fileBackedTaskManager = fileBackedTaskManager.loadFromFile(fileBackedTaskManager.pathToFile);
         System.out.println(fileBackedTaskManager.getAllEpics());
-        Task task1 = new Task("Таск 1", "Описание 1", 1, TaskStatus.NEW);
+        Task task1 = new Task("Таск 1", "Описание 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 2, 18, 17, 40));
         ArrayList<Integer> epic1SUbtasks = new ArrayList<>();
-        Epic epic1 = new Epic("Эпик 1", "Описание 1", 1, TaskStatus.NEW, epic1SUbtasks);
-        Epic epic2 = new Epic("Эпик 2", "Описание 2", 1, TaskStatus.NEW, epic1SUbtasks);
-        Subtask subtask1 = new Subtask("Саб 1", "Описание саб 1", 1, TaskStatus.NEW, 2);
-        Subtask subtask2 = new Subtask("Саб 2", "Описание саб 2", 1, TaskStatus.NEW, 3);
-        Subtask subtask3 = new Subtask("Саб 3", "Описание саб 3", 1, TaskStatus.NEW, 3);
-        Task task2 = new Task("Task2", "2", 1, TaskStatus.NEW);
+        Epic epic1 = new Epic("Эпик 1", "Описание 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 2, 18, 17, 40), epic1SUbtasks);
+        Epic epic2 = new Epic("Эпик 2", "Описание 2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 2, 18, 17, 40), epic1SUbtasks);
+        Subtask subtask1 = new Subtask("Саб 1", "Описание саб 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 2, 18, 17, 40), 2);
+        Subtask subtask2 = new Subtask("Саб 2", "Описание саб 2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 2, 18, 17, 40), 3);
+        Subtask subtask3 = new Subtask("Саб 3", "Описание саб 3", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 2, 18, 17, 40), 3);
+        Task task2 = new Task("Task2", "2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 2, 18, 17, 40));
 
         //создаем таски
         fileBackedTaskManager.createTask(task1);
@@ -219,7 +222,7 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
         //вносим изменения в сабтаск, проверяем статус эпика
         System.out.println("Epic 2: " + fileBackedTaskManager.getEpic(3));
         System.out.println("History" + ((InMemoryTaskManager) fileBackedTaskManager).getHistory());
-        Subtask subtask4 = new Subtask("Саб 1", "Описание саб 1", 4, TaskStatus.IN_PROGRESS, 3);
+        Subtask subtask4 = new Subtask("Саб 1", "Описание саб 1", 4, TaskStatus.IN_PROGRESS, 30, LocalDateTime.of(2023, 2, 18, 17, 40), 3);
         fileBackedTaskManager.updateSubtask(subtask4);
         System.out.println("Epic 2: " + fileBackedTaskManager.getEpic(3));
         System.out.println("History" + ((InMemoryTaskManager) fileBackedTaskManager).getHistory());

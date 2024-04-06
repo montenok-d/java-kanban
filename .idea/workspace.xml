@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c89ad8f5-6fe2-43f7-aff4-9687f43257cd" name="Changes" comment="Add api-tests.yml">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="c89ad8f5-6fe2-43f7-aff4-9687f43257cd" name="Changes" comment="Add duration, startTime to Epic, Subtask">
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java-kanban.iml" beforeDir="false" afterPath="$PROJECT_DIR$/java-kanban.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HistoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HistoryManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InMemoryHistoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InMemoryHistoryManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InMemoryTaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java-kanban/dataHistoryTask.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/dataHistoryTask.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileBackedTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileBackedTaskManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/InMemoryHistoryManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/InMemoryHistoryManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Subtask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Subtask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dataHistoryTask.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataHistoryTask.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,9 +62,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.FileBackedTaskManager.executor": "Run",
     "Application.Main.executor": "Run",
     "Downloaded.Files.Path.Enabled": "true",
     "JUnit.InMemoryTaskManagerTest.add.executor": "Run",
+    "JUnit.test in java-kanban.executor": "Run",
     "JUnit.tests in java-kanban.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
@@ -77,7 +77,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
-    "git-widget-placeholder": "sprint__6-solution",
+    "git-widget-placeholder": "sprint__8-solution-time-and-duration",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "D:/Practikum/sprint4/java-kanban/tests",
     "last_opened_file_path": "D:/Practikum/sprint4/java-kanban"
@@ -98,6 +98,13 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
+    <configuration name="FileBackedTaskManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FileBackedTaskManager" />
+      <module name="java-kanban" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="java-kanban" />
@@ -115,10 +122,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="tests in java-kanban" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="test in java-kanban" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-kanban" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-21" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/tests" />
+      <dir value="$PROJECT_DIR$/test" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -126,7 +137,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.tests in java-kanban" />
+        <item itemvalue="Application.FileBackedTaskManager" />
+        <item itemvalue="JUnit.test in java-kanban" />
         <item itemvalue="JUnit.InMemoryTaskManagerTest.add" />
       </list>
     </recent_temporary>
@@ -235,7 +247,23 @@
       <option name="project" value="LOCAL" />
       <updated>1710354534789</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add duration, startTime to Task">
+      <option name="closed" value="true" />
+      <created>1712424767597</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1712424767597</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Add duration, startTime to Epic, Subtask">
+      <option name="closed" value="true" />
+      <created>1712425319973</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1712425319973</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -293,7 +321,9 @@
     <MESSAGE value="Tests related fixes" />
     <MESSAGE value="Method &quot;add&quot; fix in InMemoryHistoryManager" />
     <MESSAGE value="Add api-tests.yml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add api-tests.yml" />
+    <MESSAGE value="Add duration, startTime to Task" />
+    <MESSAGE value="Add duration, startTime to Epic, Subtask" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add duration, startTime to Epic, Subtask" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
