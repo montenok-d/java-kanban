@@ -3,6 +3,7 @@ import Model.Subtask;
 import Model.Task;
 import Model.TaskStatus;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -73,6 +74,7 @@ public class InMemoryTaskManager implements TaskManager, HistoryManager {
         epics.put(taskId, epic);
     }
 
+
     @Override
     public void createSubtask(Subtask subtask) {
         int epicId = subtask.getEpicId();
@@ -83,6 +85,7 @@ public class InMemoryTaskManager implements TaskManager, HistoryManager {
             subtasks.put(taskId, subtask);
             Epic epic = epics.get(subtask.getEpicId());
             epic.getSubtasksId().add(taskId);
+            setEpicTimeAndDuration(epic);
         }
     }
 
@@ -118,7 +121,27 @@ public class InMemoryTaskManager implements TaskManager, HistoryManager {
             } else if (doneCount == subtasks.size()) {
                 epics.get(epicId).setStatus(TaskStatus.DONE);
             }
+            setEpicTimeAndDuration(epics.get(epicId));
         }
+    }
+
+    public void setEpicTimeAndDuration(Epic epic) {
+        ArrayList<Subtask> epicSubtasks = getEpicSubtasks(epic.getTaskId());
+        int epicDuration = 0;
+        LocalDateTime epicStartTime = null;
+        LocalDateTime epicEndTime = null;
+        for (Subtask subtask: epicSubtasks) {
+            epicDuration += subtask.getDuration();
+            if (epicStartTime == null || epicStartTime.isAfter(subtask.getStartTime())) {
+                epicStartTime = subtask.getStartTime();
+            }
+            if (epicEndTime == null || epicEndTime.isBefore(subtask.getStartTime())) {
+                epicEndTime = subtask.getStartTime();
+            }
+        }
+        epic.setDuration(epicDuration);
+        epic.setStartTime(epicStartTime);
+        epic.setEndTime(epicEndTime);
     }
 
     @Override
