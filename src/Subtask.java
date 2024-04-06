@@ -1,9 +1,11 @@
+import java.time.LocalDateTime;
+
 public class Subtask extends Task {
 
     private int epicId;
 
-    public Subtask(String name, String description, int taskId, TaskStatus status, int epicId) {
-        super(name, description, taskId, status);
+    public Subtask(String name, String description, int taskId, TaskStatus status, int epicId, int duration, LocalDateTime startTime) {
+        super(name, description, taskId, status, duration, startTime);
         this.epicId = epicId;
     }
 
@@ -24,7 +26,7 @@ public class Subtask extends Task {
     @Override
     public String toString() {
         return getTaskId() + "," + TaskType.SUBTASK + "," + getName() + "," + getStatus() + ","
-                + getDescription() + "," + epicId + ",";
+                + getDescription() + "," + epicId + "," + getDuration() + "," + getStartTime() + ",";
     }
 
 }
