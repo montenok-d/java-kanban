@@ -1,3 +1,8 @@
+import Model.Epic;
+import Model.Subtask;
+import Model.Task;
+import Model.TaskStatus;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -33,11 +38,11 @@ public class Main {
         System.out.println(manager.getEpicSubtasks(2));
 
         //вносим изменения в сабтаск, проверяем статус эпика
-        System.out.println("Epic 2: " + manager.getEpic(3));
+        System.out.println("Model.Epic 2: " + manager.getEpic(3));
         System.out.println("History" + ((InMemoryTaskManager)manager).getHistory());
         Subtask subtask4 = new Subtask("Саб 1", "Описание саб 1", 4, TaskStatus.IN_PROGRESS, 30, LocalDateTime.of(2023, 2, 18, 17, 40), 3);
         manager.updateSubtask(subtask4);
-        System.out.println("Epic 2: " + manager.getEpic(3));
+        System.out.println("Model.Epic 2: " + manager.getEpic(3));
 
         //удаляем таски
         //manager.removeSubtask(5);
@@ -49,7 +54,7 @@ public class Main {
         manager.getTask(6);
         System.out.println("History" + ((InMemoryTaskManager)manager).getHistory());
 
-        System.out.println("Epic 2: " + manager.getTask(0));
+        System.out.println("Model.Epic 2: " + manager.getTask(0));
         System.out.println("History" + ((InMemoryTaskManager)manager).getHistory());
 
 

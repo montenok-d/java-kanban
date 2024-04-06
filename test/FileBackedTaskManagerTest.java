@@ -1,8 +1,13 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import Model.Epic;
+import Model.Subtask;
+import Model.Task;
+import Model.TaskStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,12 +19,12 @@ public class FileBackedTaskManagerTest {
     @BeforeEach
     public void beforeEach() {
         fileBackedTaskManager = new FileBackedTaskManager();
-        Task task1 = new Task("Таск 1", "Описание 1", 1, TaskStatus.NEW);
+        Task task1 = new Task("Таск 1", "Описание 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2024, 4, 5, 17, 40));
         ArrayList<Integer> epic1SUbtasks = new ArrayList<>();
-        Epic epic1 = new Epic("Эпик 1", "Описание 1", 1, TaskStatus.NEW, epic1SUbtasks);
-        Epic epic2 = new Epic("Эпик 2", "Описание 2", 1, TaskStatus.NEW, epic1SUbtasks);
-        Subtask subtask1 = new Subtask("Саб 1", "Описание саб 1", 1, TaskStatus.NEW, 2);
-        Subtask subtask2 = new Subtask("Саб 2", "Описание саб 2", 1, TaskStatus.NEW, 3);
+        Epic epic1 = new Epic("Эпик 1", "Описание 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2024, 4, 5, 17, 40), epic1SUbtasks);
+        Epic epic2 = new Epic("Эпик 2", "Описание 2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2024, 4, 5, 17, 40), epic1SUbtasks);
+        Subtask subtask1 = new Subtask("Саб 1", "Описание саб 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2024, 4, 5, 17, 40), 2);
+        Subtask subtask2 = new Subtask("Саб 2", "Описание саб 2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2024, 4, 5, 17, 40), 3);
         fileBackedTaskManager.createTask(task1);
         fileBackedTaskManager.createEpic(epic1);
         fileBackedTaskManager.createEpic(epic2);

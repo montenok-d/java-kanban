@@ -1,6 +1,9 @@
+import Model.Task;
+import Model.TaskStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,7 +15,7 @@ class InMemoryHistoryManagerTest {
 
     @BeforeEach
     public void beforeEach() {
-        task = new Task("Test addNewTask", "Test addNewTask description", 0, TaskStatus.NEW);
+        task = new Task("Test addNewTask", "Test addNewTask description", 0, TaskStatus.NEW, 30, LocalDateTime.of(2024, 4, 5, 17, 40));
         historyManager = new InMemoryHistoryManager();
     }
 

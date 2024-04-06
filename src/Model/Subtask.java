@@ -1,3 +1,7 @@
+package Model;
+
+import Model.Task;
+
 import java.time.LocalDateTime;
 
 public class Subtask extends Task {
@@ -26,7 +30,7 @@ public class Subtask extends Task {
     @Override
     public String toString() {
         return getTaskId() + "," + TaskType.SUBTASK + "," + getName() + "," + getStatus() + ","
-                + getDescription() + "," + epicId + "," + getDuration() + "," + getStartTime() + ",";
+                + getDescription() + "," + getDuration() + "," + getStartTime() + "," + epicId + ",";
     }
 
 }
