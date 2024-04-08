@@ -201,7 +201,7 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
     public static void main(String[] args) {
 
         FileBackedTaskManager fileBackedTaskManager = new FileBackedTaskManager();
-        //fileBackedTaskManager = fileBackedTaskManager.loadFromFile(fileBackedTaskManager.pathToFile);
+        fileBackedTaskManager = fileBackedTaskManager.loadFromFile(fileBackedTaskManager.pathToFile);
         System.out.println(fileBackedTaskManager.getAllEpics());
         Task task1 = new Task("Таск 1", "Описание 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 2, 18, 17, 40));
         ArrayList<Integer> epic1SUbtasks = new ArrayList<>();

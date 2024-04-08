@@ -158,7 +158,7 @@ public class InMemoryTaskManager implements TaskManager, HistoryManager {
         int epicDuration = 0;
         LocalDateTime epicStartTime = null;
         LocalDateTime epicEndTime = null;
-        for (Subtask subtask: epicSubtasks) {
+        for (Subtask subtask : epicSubtasks) {
             epicDuration += subtask.getDuration();
             if (epicStartTime == null || epicStartTime.isAfter(subtask.getStartTime())) {
                 epicStartTime = subtask.getStartTime();

@@ -33,23 +33,19 @@ public class Main {
         manager.createTask(task2);
 
         //выводим все таски в консоль
-        //System.out.println(manager.getAllTasks());
-        //System.out.println(manager.getAllEpics());
-        //System.out.println(manager.getAllSubtasks());
+        System.out.println(manager.getAllTasks());
+        System.out.println(manager.getAllEpics());
+        System.out.println(manager.getAllSubtasks());
         System.out.println(manager.getEpicSubtasks(2));
 
         //вносим изменения в сабтаск, проверяем статус эпика
         System.out.println("Model.Epic 2: " + manager.getEpic(3));
         System.out.println("History" + ((InMemoryTaskManager)manager).getHistory());
-        //Subtask subtask4 = new Subtask("Саб 1", "Описание саб 1", 4, TaskStatus.IN_PROGRESS, 30, LocalDateTime.of(2023, 10, 18, 17, 40), 3);
-        //manager.updateSubtask(subtask4);
+        Subtask subtask4 = new Subtask("Саб 1", "Описание саб 1", 4, TaskStatus.IN_PROGRESS, 30, LocalDateTime.of(2023, 10, 18, 17, 40), 3);
+        manager.updateSubtask(subtask4);
         System.out.println("Model.Epic 2: " + manager.getEpic(3));
         System.out.println("Prior" + ((InMemoryTaskManager) manager).getPrioritizedTasks());
         System.out.println(manager.getEpicSubtasks(3));
-
-        //удаляем таски
-        //manager.removeSubtask(5);
-        //System.out.println(manager.getAllSubtasks());
 
         //проверяем историю просмотров
         manager.getTask(0);
