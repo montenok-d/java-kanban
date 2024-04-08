@@ -101,6 +101,7 @@ public class InMemoryTaskManager implements TaskManager, HistoryManager {
             subtasks.put(taskId, subtask);
             Epic epic = epics.get(epicId);
             epic.getSubtasksId().add(taskId);
+            setEpicStatus(epicId);
             setEpicTimeAndDuration(epic);
             prioritizedTasks.add(subtask);
         }
@@ -144,10 +145,10 @@ public class InMemoryTaskManager implements TaskManager, HistoryManager {
                     doneCount += 1;
                 }
             }
-            if (inProgressCount > 0) {
-                epics.get(epicId).setStatus(TaskStatus.IN_PROGRESS);
-            } else if (doneCount == subtasks.size()) {
+            if (doneCount == epicSubtasks.size()) {
                 epics.get(epicId).setStatus(TaskStatus.DONE);
+            } else if (inProgressCount > 0 || (doneCount < subtasks.size() && doneCount != 0)) {
+                epics.get(epicId).setStatus(TaskStatus.IN_PROGRESS);
             }
         }
     }

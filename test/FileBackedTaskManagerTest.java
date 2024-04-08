@@ -11,56 +11,43 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileBackedTaskManagerTest {
-
-    Task task;
-    FileBackedTaskManager fileBackedTaskManager;
+public class FileBackedTaskManagerTest extends TaskManagerTest<FileBackedTaskManager>{
 
     @BeforeEach
     public void beforeEach() {
-        fileBackedTaskManager = new FileBackedTaskManager();
-        Task task1 = new Task("Таск 1", "Описание 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2024, 4, 5, 17, 40));
-        ArrayList<Integer> epic1SUbtasks = new ArrayList<>();
-        Epic epic1 = new Epic("Эпик 1", "Описание 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2024, 5, 5, 17, 40), epic1SUbtasks);
-        Epic epic2 = new Epic("Эпик 2", "Описание 2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2024, 6, 5, 17, 40), epic1SUbtasks);
-        Subtask subtask1 = new Subtask("Саб 1", "Описание саб 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2024, 7, 5, 17, 40), 2);
-        Subtask subtask2 = new Subtask("Саб 2", "Описание саб 2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2024, 8, 5, 17, 40), 3);
-        fileBackedTaskManager.createTask(task1);
-        fileBackedTaskManager.createEpic(epic1);
-        fileBackedTaskManager.createEpic(epic2);
-        fileBackedTaskManager.createSubtask(subtask1);
-        fileBackedTaskManager.createSubtask(subtask2);
+        manager = new FileBackedTaskManager();
+        super.beforeEach();
     }
 
     @Test
     void shouldRestoreTasks() {
-        List<Task> allTasks = fileBackedTaskManager.getAllTasks();
-        fileBackedTaskManager = fileBackedTaskManager.loadFromFile(fileBackedTaskManager.pathToFile);
-        List<Task> loadedTasks = fileBackedTaskManager.getAllTasks();
+        List<Task> allTasks = manager.getAllTasks();
+        manager = manager.loadFromFile(manager.pathToFile);
+        List<Task> loadedTasks = manager.getAllTasks();
         assertEquals(allTasks, loadedTasks);
     }
 
     @Test
     void shouldRestoreEpics() {
-        List<Epic> allTasks = fileBackedTaskManager.getAllEpics();
-        fileBackedTaskManager = fileBackedTaskManager.loadFromFile(fileBackedTaskManager.pathToFile);
-        List<Epic> loadedTasks = fileBackedTaskManager.getAllEpics();
+        List<Epic> allTasks = manager.getAllEpics();
+        manager = manager.loadFromFile(manager.pathToFile);
+        List<Epic> loadedTasks = manager.getAllEpics();
         assertEquals(allTasks, loadedTasks);
     }
 
     @Test
     void shouldRestoreSubtasks() {
-        List<Subtask> allTasks = fileBackedTaskManager.getAllSubtasks();
-        fileBackedTaskManager = fileBackedTaskManager.loadFromFile(fileBackedTaskManager.pathToFile);
-        List<Subtask> loadedTasks = fileBackedTaskManager.getAllSubtasks();
+        List<Subtask> allTasks = manager.getAllSubtasks();
+        manager = manager.loadFromFile(manager.pathToFile);
+        List<Subtask> loadedTasks = manager.getAllSubtasks();
         assertEquals(allTasks, loadedTasks);
     }
 
     @Test
     void shouldRestoreHistory() {
-        List<Task> history = fileBackedTaskManager.getHistory();
-        fileBackedTaskManager = fileBackedTaskManager.loadFromFile(fileBackedTaskManager.pathToFile);
-        List<Task> loadedHistory = fileBackedTaskManager.getHistory();
+        List<Task> history = manager.getHistory();
+        manager = manager.loadFromFile(manager.pathToFile);
+        List<Task> loadedHistory = manager.getHistory();
         assertEquals(history, loadedHistory);
     }
 }
