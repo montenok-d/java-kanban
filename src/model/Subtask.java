@@ -1,6 +1,4 @@
-package Model;
-
-import Model.Task;
+package model;
 
 import java.time.LocalDateTime;
 
