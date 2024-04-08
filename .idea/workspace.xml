@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c89ad8f5-6fe2-43f7-aff4-9687f43257cd" name="Changes" comment="Add Epic date-time and duration method">
+    <list default="true" id="c89ad8f5-6fe2-43f7-aff4-9687f43257cd" name="Changes" comment="Edit Comparator in prioritizedTasks">
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/java-kanban/dataHistoryTask.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/dataHistoryTask.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileBackedTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileBackedTaskManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InMemoryTaskManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dataHistoryTask.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataHistoryTask.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/FileBackedTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FileBackedTaskManagerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +66,7 @@
     "Application.FileBackedTaskManager.executor": "Run",
     "Application.Main.executor": "Run",
     "Downloaded.Files.Path.Enabled": "true",
+    "JUnit.FileBackedTaskManagerTest.executor": "Run",
     "JUnit.InMemoryTaskManagerTest.add.executor": "Run",
     "JUnit.InMemoryTaskManagerTest.executor": "Run",
     "JUnit.test in java-kanban.executor": "Run",
@@ -112,21 +115,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InMemoryTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FileBackedTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-kanban" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="InMemoryTaskManagerTest" />
+      <option name="MAIN_CLASS_NAME" value="FileBackedTaskManagerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InMemoryTaskManagerTest.add" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="InMemoryTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-kanban" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="InMemoryTaskManagerTest" />
-      <option name="METHOD_NAME" value="add" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -147,9 +149,9 @@
       <list>
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.test in java-kanban" />
+        <item itemvalue="JUnit.FileBackedTaskManagerTest" />
         <item itemvalue="Application.FileBackedTaskManager" />
         <item itemvalue="JUnit.InMemoryTaskManagerTest" />
-        <item itemvalue="JUnit.InMemoryTaskManagerTest.add" />
       </list>
     </recent_temporary>
   </component>
@@ -297,7 +299,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712436557927</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Add prioritizedTasks, check task overlapping in time">
+      <option name="closed" value="true" />
+      <created>1712582597207</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1712582597207</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Edit Comparator in prioritizedTasks">
+      <option name="closed" value="true" />
+      <created>1712585705936</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1712585705936</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -360,7 +378,9 @@
     <MESSAGE value="Change TaskManagers methods due to duration and date-time" />
     <MESSAGE value="Change Tests, TaskManagers methods due to duration and date-time" />
     <MESSAGE value="Add Epic date-time and duration method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Epic date-time and duration method" />
+    <MESSAGE value="Add prioritizedTasks, check task overlapping in time" />
+    <MESSAGE value="Edit Comparator in prioritizedTasks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit Comparator in prioritizedTasks" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -370,19 +390,23 @@
           <option name="timeStamp" value="56" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="57" />
+          <url>file://$PROJECT_DIR$/test/FileBackedTaskManagerTest.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="60" />
+          <line>47</line>
+          <option name="timeStamp" value="67" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="61" />
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/test/FileBackedTaskManagerTest.java</url>
+          <line>35</line>
+          <properties class="FileBackedTaskManagerTest" method="shouldRestoreTasks">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="66" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

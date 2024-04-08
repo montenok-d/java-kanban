@@ -21,10 +21,10 @@ public class FileBackedTaskManagerTest {
         fileBackedTaskManager = new FileBackedTaskManager();
         Task task1 = new Task("Таск 1", "Описание 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2024, 4, 5, 17, 40));
         ArrayList<Integer> epic1SUbtasks = new ArrayList<>();
-        Epic epic1 = new Epic("Эпик 1", "Описание 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2024, 4, 5, 17, 40), epic1SUbtasks);
-        Epic epic2 = new Epic("Эпик 2", "Описание 2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2024, 4, 5, 17, 40), epic1SUbtasks);
-        Subtask subtask1 = new Subtask("Саб 1", "Описание саб 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2024, 4, 5, 17, 40), 2);
-        Subtask subtask2 = new Subtask("Саб 2", "Описание саб 2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2024, 4, 5, 17, 40), 3);
+        Epic epic1 = new Epic("Эпик 1", "Описание 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2024, 5, 5, 17, 40), epic1SUbtasks);
+        Epic epic2 = new Epic("Эпик 2", "Описание 2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2024, 6, 5, 17, 40), epic1SUbtasks);
+        Subtask subtask1 = new Subtask("Саб 1", "Описание саб 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2024, 7, 5, 17, 40), 2);
+        Subtask subtask2 = new Subtask("Саб 2", "Описание саб 2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2024, 8, 5, 17, 40), 3);
         fileBackedTaskManager.createTask(task1);
         fileBackedTaskManager.createEpic(epic1);
         fileBackedTaskManager.createEpic(epic2);

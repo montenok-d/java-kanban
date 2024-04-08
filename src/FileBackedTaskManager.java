@@ -201,16 +201,16 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
     public static void main(String[] args) {
 
         FileBackedTaskManager fileBackedTaskManager = new FileBackedTaskManager();
-        fileBackedTaskManager = fileBackedTaskManager.loadFromFile(fileBackedTaskManager.pathToFile);
+        //fileBackedTaskManager = fileBackedTaskManager.loadFromFile(fileBackedTaskManager.pathToFile);
         System.out.println(fileBackedTaskManager.getAllEpics());
         Task task1 = new Task("Таск 1", "Описание 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 2, 18, 17, 40));
         ArrayList<Integer> epic1SUbtasks = new ArrayList<>();
-        Epic epic1 = new Epic("Эпик 1", "Описание 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 2, 18, 17, 40), epic1SUbtasks);
-        Epic epic2 = new Epic("Эпик 2", "Описание 2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 2, 18, 17, 40), epic1SUbtasks);
-        Subtask subtask1 = new Subtask("Саб 1", "Описание саб 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 2, 18, 17, 40), 2);
-        Subtask subtask2 = new Subtask("Саб 2", "Описание саб 2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 2, 18, 17, 40), 3);
-        Subtask subtask3 = new Subtask("Саб 3", "Описание саб 3", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 2, 18, 17, 40), 3);
-        Task task2 = new Task("Task2", "2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 2, 18, 17, 40));
+        Epic epic1 = new Epic("Эпик 1", "Описание 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 3, 18, 17, 40), epic1SUbtasks);
+        Epic epic2 = new Epic("Эпик 2", "Описание 2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 4, 18, 17, 40), epic1SUbtasks);
+        Subtask subtask1 = new Subtask("Саб 1", "Описание саб 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 5, 18, 17, 40), 2);
+        Subtask subtask2 = new Subtask("Саб 2", "Описание саб 2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 6, 18, 17, 40), 3);
+        Subtask subtask3 = new Subtask("Саб 3", "Описание саб 3", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 7, 18, 17, 40), 3);
+        Task task2 = new Task("Task2", "2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 8, 18, 17, 40));
 
         //создаем таски
         fileBackedTaskManager.createTask(task1);
@@ -224,7 +224,7 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
         //вносим изменения в сабтаск, проверяем статус эпика
         System.out.println("Model.Epic 2: " + fileBackedTaskManager.getEpic(3));
         System.out.println("History" + ((InMemoryTaskManager) fileBackedTaskManager).getHistory());
-        Subtask subtask4 = new Subtask("Саб 1", "Описание саб 1", 4, TaskStatus.IN_PROGRESS, 30, LocalDateTime.of(2023, 2, 18, 17, 40), 3);
+        Subtask subtask4 = new Subtask("Саб 1", "Описание саб 1", 4, TaskStatus.IN_PROGRESS, 30, LocalDateTime.of(2023, 9, 18, 17, 40), 3);
         fileBackedTaskManager.updateSubtask(subtask4);
         System.out.println("Model.Epic 2: " + fileBackedTaskManager.getEpic(3));
         System.out.println("History" + ((InMemoryTaskManager) fileBackedTaskManager).getHistory());
