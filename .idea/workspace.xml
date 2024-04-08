@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c89ad8f5-6fe2-43f7-aff4-9687f43257cd" name="Changes" comment="Change data in tests, managers, change forEach to stream in getEpicSubtasks">
+    <list default="true" id="c89ad8f5-6fe2-43f7-aff4-9687f43257cd" name="Changes" comment="Add TaskManagerTest">
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/java-kanban/dataHistoryTask.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/dataHistoryTask.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InMemoryTaskManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dataHistoryTask.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataHistoryTask.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/FileBackedTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FileBackedTaskManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/InMemoryHistoryManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/InMemoryHistoryManagerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/InMemoryTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/InMemoryTaskManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TaskManagerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -326,7 +326,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712594281790</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Add TaskManagerTest">
+      <option name="closed" value="true" />
+      <created>1712602643336</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1712602643336</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -392,7 +400,8 @@
     <MESSAGE value="Add prioritizedTasks, check task overlapping in time" />
     <MESSAGE value="Edit Comparator in prioritizedTasks" />
     <MESSAGE value="Change data in tests, managers, change forEach to stream in getEpicSubtasks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change data in tests, managers, change forEach to stream in getEpicSubtasks" />
+    <MESSAGE value="Add TaskManagerTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add TaskManagerTest" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -406,14 +415,9 @@
           <line>47</line>
           <option name="timeStamp" value="67" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/test/TaskManagerTest.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="74" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/test/TaskManagerTest.java</url>
-          <line>93</line>
+          <line>85</line>
           <properties class="TaskManagerTest" method="addSubtasksDoneAndSetEpicStatusAsDone">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

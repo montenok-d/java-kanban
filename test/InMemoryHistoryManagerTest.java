@@ -28,6 +28,15 @@ class InMemoryHistoryManagerTest {
     }
 
     @Test
+    void addTaskTwoTimesAndGetHistory() {
+        historyManager.add(task);
+        historyManager.add(task);
+        List<Task> history = historyManager.getHistory();
+        assertNotNull(history, "История не пустая.");
+        assertEquals(1, history.size(), "История не пустая.");
+    }
+
+    @Test
     void removeTaskAndGetHistory() {
         historyManager.add(task);
         historyManager.remove(task.getTaskId());

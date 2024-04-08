@@ -2,13 +2,11 @@ import Model.Task;
 import Model.Epic;
 import Model.Subtask;
 import Model.TaskStatus;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -38,12 +36,6 @@ public abstract class TaskManagerTest<T extends TaskManager> {
         manager.createSubtask(subtask1);
         manager.createSubtask(subtask2);
     }
-
-    /*@AfterEach
-    void clear() {
-        manager.removeAllTasks();
-        manager.removeAllSubtasks();
-    }*/
 
     @Test
     void addNewTask() {
