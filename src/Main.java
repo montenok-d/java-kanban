@@ -13,14 +13,14 @@ public class Main {
         System.out.println("Поехали!");
 
         TaskManager manager = Managers.getDefault();
-        Task task1 = new Task("Покормить кота", "Дать коту 20 грамм корма", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 2, 18, 17, 40));
+        Task task1 = new Task("Покормить кота", "Дать коту 20 грамм корма", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 1, 18, 17, 40));
         ArrayList<Integer> epic1SUbtasks = new ArrayList<>();
-        Epic epic1 = new Epic("Эпик 1", "Описание 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 2, 18, 17, 40), epic1SUbtasks);
-        Epic epic2 = new Epic("Эпик 2", "Описание 2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 2, 18, 17, 40), epic1SUbtasks);
-        Subtask subtask1 = new Subtask("Саб 1", "Описание саб 1",1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 2, 18, 17, 40), 2);
-        Subtask subtask2 = new Subtask("Саб 2", "Описание саб 2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 2, 18, 17, 40), 3);
-        Subtask subtask3 = new Subtask("Саб 3", "Описание саб 3", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 2, 18, 17, 40), 3);
-        Task task2 = new Task("Task2", "2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 2, 18, 17, 40));
+        Epic epic1 = new Epic("Эпик 1", "Описание 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 3, 18, 17, 40), epic1SUbtasks);
+        Epic epic2 = new Epic("Эпик 2", "Описание 2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 4, 18, 17, 40), epic1SUbtasks);
+        Subtask subtask1 = new Subtask("Саб 1", "Описание саб 1",1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 5, 18, 17, 40), 2);
+        Subtask subtask2 = new Subtask("Саб 2", "Описание саб 2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 6, 18, 17, 40), 3);
+        Subtask subtask3 = new Subtask("Саб 3", "Описание саб 3", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 7, 18, 17, 40), 3);
+        Task task2 = new Task("Task2", "2", 1, TaskStatus.NEW, 30, LocalDateTime.of(2023, 8, 18, 17, 40));
 
         //создаем таски
         manager.createTask(task1);
@@ -40,9 +40,10 @@ public class Main {
         //вносим изменения в сабтаск, проверяем статус эпика
         System.out.println("Model.Epic 2: " + manager.getEpic(3));
         System.out.println("History" + ((InMemoryTaskManager)manager).getHistory());
-        Subtask subtask4 = new Subtask("Саб 1", "Описание саб 1", 4, TaskStatus.IN_PROGRESS, 30, LocalDateTime.of(2023, 2, 18, 17, 40), 3);
+        Subtask subtask4 = new Subtask("Саб 1", "Описание саб 1", 4, TaskStatus.IN_PROGRESS, 30, LocalDateTime.of(2023, 10, 18, 17, 40), 3);
         manager.updateSubtask(subtask4);
         System.out.println("Model.Epic 2: " + manager.getEpic(3));
+        System.out.println("Prior" + ((InMemoryTaskManager) manager).getPrioritizedTasks());
 
         //удаляем таски
         //manager.removeSubtask(5);
