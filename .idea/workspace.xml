@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c89ad8f5-6fe2-43f7-aff4-9687f43257cd" name="Changes" comment="Rename package model">
+    <list default="true" id="c89ad8f5-6fe2-43f7-aff4-9687f43257cd" name="Changes" comment="Change methods from public to private, add methods to removeSubtask()">
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java-kanban/dataHistoryTask.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/dataHistoryTask.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InMemoryTaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dataHistoryTask.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataHistoryTask.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TaskManagerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +100,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.test in java-kanban">
     <configuration name="FileBackedTaskManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="FileBackedTaskManager" />
       <module name="java-kanban" />
@@ -142,8 +147,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.test in java-kanban" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.FileBackedTaskManager" />
         <item itemvalue="JUnit.FileBackedTaskManagerTest" />
         <item itemvalue="JUnit.InMemoryTaskManagerTest" />
@@ -358,7 +363,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712603995141</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Change methods from public to private, add methods to removeSubtask()">
+      <option name="closed" value="true" />
+      <created>1712750681714</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1712750681715</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -428,7 +441,8 @@
     <MESSAGE value="Add tests, delete unused imports" />
     <MESSAGE value="Edit format" />
     <MESSAGE value="Rename package model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rename package model" />
+    <MESSAGE value="Change methods from public to private, add methods to removeSubtask()" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change methods from public to private, add methods to removeSubtask()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -437,15 +451,6 @@
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="56" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/test/TaskManagerTest.java</url>
-          <line>85</line>
-          <properties class="TaskManagerTest" method="addSubtasksDoneAndSetEpicStatusAsDone">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="73" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
