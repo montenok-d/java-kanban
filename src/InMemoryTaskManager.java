@@ -28,7 +28,7 @@ public class InMemoryTaskManager implements TaskManager, HistoryManager {
 
     private void checkTimeOverlap(Task task) {
         for (Task priorTask : prioritizedTasks) {
-            if (!(priorTask.getTaskId() == (task.getTaskId()))){
+            if (!(priorTask.getTaskId() == (task.getTaskId()))) {
                 if (priorTask.getEndTime() != null && task.getStartTime() != null) {
                     if (!(priorTask.getEndTime().isBefore(task.getStartTime()) || priorTask.getStartTime().isAfter(task.getEndTime()))) {
                         throw new TaskTimeException("Задача пересекается во времени с другой задачей");
