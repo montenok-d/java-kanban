@@ -117,7 +117,7 @@ public class InMemoryTaskManager implements TaskManager, HistoryManager {
             subtasks.put(taskId, subtask);
             Epic epic = epics.get(epicId);
             if (epic.getSubtasksId() != null) {
-               epic.getSubtasksId().add(taskId);
+                epic.getSubtasksId().add(taskId);
             }
             setEpicStatus(epicId);
             setEpicTimeAndDuration(epic);
