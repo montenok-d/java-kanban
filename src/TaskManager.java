@@ -1,6 +1,13 @@
+import model.Epic;
+import model.Subtask;
+import model.Task;
+
 import java.util.ArrayList;
 
 public interface TaskManager {
+
+    ArrayList<Task> getPrioritizedTasks();
+
     Task getTask(int taskId);
 
     Epic getEpic(int taskId);

@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c89ad8f5-6fe2-43f7-aff4-9687f43257cd" name="Changes" comment="Add api-tests.yml">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="c89ad8f5-6fe2-43f7-aff4-9687f43257cd" name="Changes" comment="Change methods from public to private, add methods to removeSubtask()">
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java-kanban.iml" beforeDir="false" afterPath="$PROJECT_DIR$/java-kanban.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HistoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HistoryManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InMemoryHistoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InMemoryHistoryManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java-kanban/dataHistoryTask.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java-kanban/dataHistoryTask.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InMemoryTaskManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/InMemoryHistoryManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/InMemoryHistoryManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dataHistoryTask.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataHistoryTask.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TaskManagerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +23,8 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -64,9 +62,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.FileBackedTaskManager.executor": "Run",
     "Application.Main.executor": "Run",
     "Downloaded.Files.Path.Enabled": "true",
+    "JUnit.FileBackedTaskManagerTest.executor": "Run",
     "JUnit.InMemoryTaskManagerTest.add.executor": "Run",
+    "JUnit.InMemoryTaskManagerTest.executor": "Run",
+    "JUnit.TaskManagerTest.addNewTask.executor": "Run",
+    "JUnit.test in java-kanban.executor": "Run",
     "JUnit.tests in java-kanban.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
@@ -77,7 +80,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
-    "git-widget-placeholder": "sprint__6-solution",
+    "git-widget-placeholder": "sprint__8-solution-time-and-duration",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "D:/Practikum/sprint4/java-kanban/tests",
     "last_opened_file_path": "D:/Practikum/sprint4/java-kanban"
@@ -97,7 +100,14 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.test in java-kanban">
+    <configuration name="FileBackedTaskManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FileBackedTaskManager" />
+      <module name="java-kanban" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="java-kanban" />
@@ -105,29 +115,43 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InMemoryTaskManagerTest.add" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FileBackedTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true">
       <module name="java-kanban" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="InMemoryTaskManagerTest" />
-      <option name="METHOD_NAME" value="add" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="FileBackedTaskManagerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="tests in java-kanban" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="InMemoryTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-kanban" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="InMemoryTaskManagerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test in java-kanban" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-kanban" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-21" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/tests" />
+      <dir value="$PROJECT_DIR$/test" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.test in java-kanban" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.tests in java-kanban" />
-        <item itemvalue="JUnit.InMemoryTaskManagerTest.add" />
+        <item itemvalue="Application.FileBackedTaskManager" />
+        <item itemvalue="JUnit.FileBackedTaskManagerTest" />
+        <item itemvalue="JUnit.InMemoryTaskManagerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -235,7 +259,119 @@
       <option name="project" value="LOCAL" />
       <updated>1710354534789</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add duration, startTime to Task">
+      <option name="closed" value="true" />
+      <created>1712424767597</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1712424767597</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Add duration, startTime to Epic, Subtask">
+      <option name="closed" value="true" />
+      <created>1712425319973</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1712425319973</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Change TaskManagers methods due to duration and date-time">
+      <option name="closed" value="true" />
+      <created>1712426145339</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1712426145339</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Change Tests, TaskManagers methods due to duration and date-time">
+      <option name="closed" value="true" />
+      <created>1712427079761</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1712427079761</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Add Epic date-time and duration method">
+      <option name="closed" value="true" />
+      <created>1712436557927</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1712436557927</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Add prioritizedTasks, check task overlapping in time">
+      <option name="closed" value="true" />
+      <created>1712582597207</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1712582597207</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Edit Comparator in prioritizedTasks">
+      <option name="closed" value="true" />
+      <created>1712585705936</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1712585705936</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Change data in tests, managers, change forEach to stream in getEpicSubtasks">
+      <option name="closed" value="true" />
+      <created>1712594281790</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1712594281790</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Add TaskManagerTest">
+      <option name="closed" value="true" />
+      <created>1712602643336</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1712602643336</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Add tests, delete unused imports">
+      <option name="closed" value="true" />
+      <created>1712603267702</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1712603267702</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Edit format">
+      <option name="closed" value="true" />
+      <created>1712603697676</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1712603697676</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Edit format">
+      <option name="closed" value="true" />
+      <created>1712603840467</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1712603840467</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Rename package model">
+      <option name="closed" value="true" />
+      <created>1712603995141</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1712603995141</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Change methods from public to private, add methods to removeSubtask()">
+      <option name="closed" value="true" />
+      <created>1712750681714</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1712750681715</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -293,9 +429,30 @@
     <MESSAGE value="Tests related fixes" />
     <MESSAGE value="Method &quot;add&quot; fix in InMemoryHistoryManager" />
     <MESSAGE value="Add api-tests.yml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add api-tests.yml" />
+    <MESSAGE value="Add duration, startTime to Task" />
+    <MESSAGE value="Add duration, startTime to Epic, Subtask" />
+    <MESSAGE value="Change TaskManagers methods due to duration and date-time" />
+    <MESSAGE value="Change Tests, TaskManagers methods due to duration and date-time" />
+    <MESSAGE value="Add Epic date-time and duration method" />
+    <MESSAGE value="Add prioritizedTasks, check task overlapping in time" />
+    <MESSAGE value="Edit Comparator in prioritizedTasks" />
+    <MESSAGE value="Change data in tests, managers, change forEach to stream in getEpicSubtasks" />
+    <MESSAGE value="Add TaskManagerTest" />
+    <MESSAGE value="Add tests, delete unused imports" />
+    <MESSAGE value="Edit format" />
+    <MESSAGE value="Rename package model" />
+    <MESSAGE value="Change methods from public to private, add methods to removeSubtask()" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change methods from public to private, add methods to removeSubtask()" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="56" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Subtask" memberName="taskId" />
