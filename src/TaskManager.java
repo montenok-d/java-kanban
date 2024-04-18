@@ -3,10 +3,13 @@ import model.Subtask;
 import model.Task;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface TaskManager {
 
     ArrayList<Task> getPrioritizedTasks();
+
+    List<Task> getHistory();
 
     Task getTask(int taskId);
 
