@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c89ad8f5-6fe2-43f7-aff4-9687f43257cd" name="Changes" comment="Add getGson to Managers, register Adapters for time , duration">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+    <list default="true" id="c89ad8f5-6fe2-43f7-aff4-9687f43257cd" name="Changes" comment="Change stop delay">
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java-kanban.iml" beforeDir="false" afterPath="$PROJECT_DIR$/java-kanban.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InMemoryTaskManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaskManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +67,7 @@
     "Application.Main.executor": "Run",
     "Downloaded.Files.Path.Enabled": "true",
     "JUnit.FileBackedTaskManagerTest.executor": "Run",
+    "JUnit.HttpTaskServerTest.createSubtask.executor": "Debug",
     "JUnit.HttpTaskServerTest.createTask.executor": "Run",
     "JUnit.HttpTaskServerTest.deleteAllSubtasks.executor": "Run",
     "JUnit.HttpTaskServerTest.deleteTaskById.executor": "Run",
@@ -138,6 +135,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HttpTaskServerTest.createSubtask" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-kanban" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="HttpTaskServerTest" />
+      <option name="METHOD_NAME" value="createSubtask" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HttpTaskServerTest.deleteAllSubtasks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-kanban" />
       <option name="PACKAGE_NAME" value="" />
@@ -158,22 +165,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InMemoryTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="java-kanban" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="InMemoryTaskManagerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.HttpTaskServerTest" />
+        <item itemvalue="JUnit.HttpTaskServerTest.createSubtask" />
         <item itemvalue="JUnit.HttpTaskServerTest.updateSubtask" />
         <item itemvalue="JUnit.HttpTaskServerTest.deleteAllSubtasks" />
         <item itemvalue="JUnit.FileBackedTaskManagerTest" />
-        <item itemvalue="JUnit.InMemoryTaskManagerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -425,7 +423,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713455116347</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Add HttpTaskServer">
+      <option name="closed" value="true" />
+      <created>1713455376977</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1713455376977</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Change stop delay">
+      <option name="closed" value="true" />
+      <created>1713455510852</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1713455510852</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -472,8 +486,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added private modifiers to Task, Epic, Subtask, fixed related methods in Manager." />
-    <MESSAGE value="Added HistoryManager and TaskManager interfaces." />
     <MESSAGE value="Added InMemoryHistoryManager class." />
     <MESSAGE value="Renamed and updated InMemoryTaskManager, added Managers class" />
     <MESSAGE value="Bug fix" />
@@ -497,7 +509,9 @@
     <MESSAGE value="Add tests, fix methods related to tests" />
     <MESSAGE value="Style fix" />
     <MESSAGE value="Add getGson to Managers, register Adapters for time , duration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add getGson to Managers, register Adapters for time , duration" />
+    <MESSAGE value="Add HttpTaskServer" />
+    <MESSAGE value="Change stop delay" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change stop delay" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -510,6 +524,15 @@
           <url>file://$PROJECT_DIR$/src/HttpTaskServer.java</url>
           <line>270</line>
           <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/test/HttpTaskServerTest.java</url>
+          <line>282</line>
+          <properties class="HttpTaskServerTest" method="createSubtask">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="87" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
