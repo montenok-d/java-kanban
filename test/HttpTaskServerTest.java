@@ -57,10 +57,11 @@ public class HttpTaskServerTest {
         URI uri = URI.create("http://localhost:8080/tasks");
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(uri).GET().build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
 
-        Type taskType = new TypeToken<ArrayList<Task>>() {}.getType();
+        Type taskType = new TypeToken<ArrayList<Task>>() {
+        }.getType();
         List<Task> actual = gson.fromJson(response.body(), taskType);
         assertNotNull(actual, "Задачи не возвращаются");
         assertEquals(task, actual.get(0), "Задачи не совпадают");
@@ -73,10 +74,11 @@ public class HttpTaskServerTest {
         URI uri = URI.create("http://localhost:8080/tasks/" + taskId);
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(uri).GET().build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
 
-        Type taskType = new TypeToken<Task>() {}.getType();
+        Type taskType = new TypeToken<Task>() {
+        }.getType();
         Task actual = gson.fromJson(response.body(), taskType);
         assertNotNull(actual, "Задачи не возвращаются");
         assertEquals(task, actual, "Задачи не совпадают");
@@ -88,7 +90,7 @@ public class HttpTaskServerTest {
         URI uri = URI.create("http://localhost:8080/tasks/404");
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(uri).GET().build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(404, response.statusCode());
     }
 
@@ -105,7 +107,7 @@ public class HttpTaskServerTest {
                 .POST(HttpRequest.BodyPublishers.ofString(newTaskToJson))
                 .build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
         assertEquals(tasksSize + 1, taskManager.getAllTasks().size());
     }
@@ -123,7 +125,7 @@ public class HttpTaskServerTest {
                 .POST(HttpRequest.BodyPublishers.ofString(newTaskToJson))
                 .build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
         assertEquals(tasksSize, taskManager.getAllTasks().size());
     }
@@ -135,7 +137,7 @@ public class HttpTaskServerTest {
         URI uri = URI.create("http://localhost:8080/tasks/" + taskId);
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(uri).DELETE().build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
         assertNull(taskManager.getTask(taskId));
     }
@@ -146,7 +148,7 @@ public class HttpTaskServerTest {
         URI uri = URI.create("http://localhost:8080/tasks");
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(uri).DELETE().build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
         assertTrue(taskManager.getAllTasks().isEmpty());
     }
@@ -157,10 +159,11 @@ public class HttpTaskServerTest {
         URI uri = URI.create("http://localhost:8080/epics");
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(uri).GET().build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
 
-        Type taskType = new TypeToken<ArrayList<Epic>>() {}.getType();
+        Type taskType = new TypeToken<ArrayList<Epic>>() {
+        }.getType();
         List<Epic> actual = gson.fromJson(response.body(), taskType);
         assertNotNull(actual, "Задачи не возвращаются");
         assertEquals(epic, actual.get(0), "Задачи не совпадают");
@@ -173,10 +176,11 @@ public class HttpTaskServerTest {
         URI uri = URI.create("http://localhost:8080/epics/" + epicId);
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(uri).GET().build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
 
-        Type taskType = new TypeToken<Epic>() {}.getType();
+        Type taskType = new TypeToken<Epic>() {
+        }.getType();
         Epic actual = gson.fromJson(response.body(), taskType);
         assertNotNull(actual, "Задачи не возвращаются");
         assertEquals(epic, actual, "Задачи не совпадают");
@@ -188,7 +192,7 @@ public class HttpTaskServerTest {
         URI uri = URI.create("http://localhost:8080/epics/404");
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(uri).GET().build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(404, response.statusCode());
     }
 
@@ -199,10 +203,11 @@ public class HttpTaskServerTest {
         URI uri = URI.create("http://localhost:8080/epics/" + epicId + "/subtasks");
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(uri).GET().build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
 
-        Type taskType = new TypeToken<ArrayList<Subtask>>() {}.getType();
+        Type taskType = new TypeToken<ArrayList<Subtask>>() {
+        }.getType();
         List<Subtask> actual = gson.fromJson(response.body(), taskType);
         assertNotNull(actual, "Задачи не возвращаются");
     }
@@ -221,7 +226,7 @@ public class HttpTaskServerTest {
                 .POST(HttpRequest.BodyPublishers.ofString(newTaskToJson))
                 .build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
         assertEquals(epicsSize + 1, taskManager.getAllEpics().size(), "Неверное количество задач.");
     }
@@ -240,7 +245,7 @@ public class HttpTaskServerTest {
                 .POST(HttpRequest.BodyPublishers.ofString(newTaskToJson))
                 .build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
         assertEquals(epicsSize, taskManager.getAllEpics().size(), "Неверное количество задач.");
     }
@@ -252,7 +257,7 @@ public class HttpTaskServerTest {
         URI uri = URI.create("http://localhost:8080/epics/" + epicId);
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(uri).DELETE().build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
         assertNull(taskManager.getEpic(epicId));
     }
@@ -263,7 +268,7 @@ public class HttpTaskServerTest {
         URI uri = URI.create("http://localhost:8080/epics");
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(uri).DELETE().build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
         assertTrue(taskManager.getAllEpics().isEmpty());
     }
@@ -274,10 +279,11 @@ public class HttpTaskServerTest {
         URI uri = URI.create("http://localhost:8080/subtasks");
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(uri).GET().build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
 
-        Type taskType = new TypeToken<ArrayList<Subtask>>() {}.getType();
+        Type taskType = new TypeToken<ArrayList<Subtask>>() {
+        }.getType();
         List<Subtask> actual = gson.fromJson(response.body(), taskType);
         assertNotNull(actual, "Задачи не возвращаются");
         assertEquals(subtask, actual.get(0), "Задачи не совпадают");
@@ -290,10 +296,11 @@ public class HttpTaskServerTest {
         URI uri = URI.create("http://localhost:8080/subtasks/" + subtaskId);
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(uri).GET().build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
 
-        Type taskType = new TypeToken<Subtask>() {}.getType();
+        Type taskType = new TypeToken<Subtask>() {
+        }.getType();
         Subtask actual = gson.fromJson(response.body(), taskType);
         assertNotNull(actual, "Задачи не возвращаются");
         assertEquals(subtask, actual, "Задачи не совпадают");
@@ -306,7 +313,7 @@ public class HttpTaskServerTest {
         URI uri = URI.create("http://localhost:8080/subtasks/404");
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(uri).GET().build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(404, response.statusCode());
     }
 
@@ -323,7 +330,7 @@ public class HttpTaskServerTest {
                 .POST(HttpRequest.BodyPublishers.ofString(newTaskToJson))
                 .build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
         assertEquals(subtasksSize + 1, taskManager.getAllSubtasks().size());
     }
@@ -341,7 +348,7 @@ public class HttpTaskServerTest {
                 .POST(HttpRequest.BodyPublishers.ofString(newTaskToJson))
                 .build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
         assertEquals(subtasksSize, taskManager.getAllSubtasks().size());
     }
@@ -353,7 +360,7 @@ public class HttpTaskServerTest {
         URI uri = URI.create("http://localhost:8080/subtasks/" + subtaskId);
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(uri).DELETE().build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
         assertNull(taskManager.getSubtask(subtaskId));
     }
@@ -364,7 +371,7 @@ public class HttpTaskServerTest {
         URI uri = URI.create("http://localhost:8080/subtasks");
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(uri).DELETE().build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
         assertTrue(taskManager.getAllSubtasks().isEmpty());
     }
@@ -375,10 +382,11 @@ public class HttpTaskServerTest {
         URI uri = URI.create("http://localhost:8080/history");
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(uri).GET().build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
 
-        Type taskType = new TypeToken<List<Task>>() {}.getType();
+        Type taskType = new TypeToken<List<Task>>() {
+        }.getType();
         List<Task> actual = gson.fromJson(response.body(), taskType);
         assertNotNull(actual, "Задачи не возвращаются");
     }
@@ -389,10 +397,11 @@ public class HttpTaskServerTest {
         URI uri = URI.create("http://localhost:8080/prioritized");
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(uri).GET().build();
 
-        HttpResponse<String > response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
 
-        Type taskType = new TypeToken<ArrayList<Task>>() {}.getType();
+        Type taskType = new TypeToken<ArrayList<Task>>() {
+        }.getType();
         List<Task> actual = gson.fromJson(response.body(), taskType);
         assertNotNull(actual, "Задачи не возвращаются");
     }

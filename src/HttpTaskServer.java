@@ -80,7 +80,7 @@ public class HttpTaskServer {
                     break;
                 }
             }
-        } catch (Exception exception){
+        } catch (Exception exception) {
             exception.printStackTrace();
         } finally {
             httpExchange.close();
@@ -101,7 +101,7 @@ public class HttpTaskServer {
                     } else {
                         httpExchange.sendResponseHeaders(404, 0);
                     }
-                     break;
+                    break;
                 } else if (Pattern.matches("/tasks$", path)) {
                     String response = gson.toJson(taskManager.getAllTasks());
                     sendText(httpExchange, response);
@@ -122,8 +122,7 @@ public class HttpTaskServer {
                         taskManager.createTask(task);
                         System.out.println("Задача успешно добавлена.");
                         httpExchange.sendResponseHeaders(200, 0);
-                    }
-                    catch (TaskTimeException exception) {
+                    } catch (TaskTimeException exception) {
                         httpExchange.sendResponseHeaders(406, 0);
                     }
                     break;
@@ -147,8 +146,8 @@ public class HttpTaskServer {
                 System.out.println("Неизвестный метод запроса: " + requestMethod);
                 httpExchange.sendResponseHeaders(405, 0);
                 break;
-            }
         }
+    }
 
     private void handleEpics(HttpExchange httpExchange) throws IOException {
         String path = httpExchange.getRequestURI().getPath();
@@ -228,8 +227,7 @@ public class HttpTaskServer {
                     if (taskManager.getSubtask(id) != null) {
                         String response = gson.toJson(taskManager.getSubtask(id));
                         sendText(httpExchange, response);
-                    }
-                    else {
+                    } else {
                         httpExchange.sendResponseHeaders(404, 0);
                     }
                     break;
