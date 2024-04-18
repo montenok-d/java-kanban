@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c89ad8f5-6fe2-43f7-aff4-9687f43257cd" name="Changes" comment="Change stop delay">
+    <list default="true" id="c89ad8f5-6fe2-43f7-aff4-9687f43257cd" name="Changes" comment="Style fix">
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HttpTaskServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HttpTaskServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Managers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Managers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/HttpTaskServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/HttpTaskServerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,12 +118,10 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.HttpTaskServerTest">
-    <configuration name="FileBackedTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.HttpTaskServer">
+    <configuration name="HttpTaskServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HttpTaskServer" />
       <module name="java-kanban" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="FileBackedTaskManagerTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -167,11 +167,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HttpTaskServer" />
         <item itemvalue="JUnit.HttpTaskServerTest" />
         <item itemvalue="JUnit.HttpTaskServerTest.createSubtask" />
         <item itemvalue="JUnit.HttpTaskServerTest.updateSubtask" />
         <item itemvalue="JUnit.HttpTaskServerTest.deleteAllSubtasks" />
-        <item itemvalue="JUnit.FileBackedTaskManagerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -439,7 +439,39 @@
       <option name="project" value="LOCAL" />
       <updated>1713455510852</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Add HttpTaskServerTest">
+      <option name="closed" value="true" />
+      <created>1713455938065</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1713455938065</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Style fix">
+      <option name="closed" value="true" />
+      <created>1713456004391</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1713456004391</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Style fix">
+      <option name="closed" value="true" />
+      <created>1713456045502</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1713456045502</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Style fix">
+      <option name="closed" value="true" />
+      <created>1713456141473</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1713456141473</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -486,7 +518,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added InMemoryHistoryManager class." />
     <MESSAGE value="Renamed and updated InMemoryTaskManager, added Managers class" />
     <MESSAGE value="Bug fix" />
     <MESSAGE value="Tests added." />
@@ -507,11 +538,12 @@
     <MESSAGE value="Rename package model" />
     <MESSAGE value="Change methods from public to private, add methods to removeSubtask()" />
     <MESSAGE value="Add tests, fix methods related to tests" />
-    <MESSAGE value="Style fix" />
     <MESSAGE value="Add getGson to Managers, register Adapters for time , duration" />
     <MESSAGE value="Add HttpTaskServer" />
     <MESSAGE value="Change stop delay" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change stop delay" />
+    <MESSAGE value="Add HttpTaskServerTest" />
+    <MESSAGE value="Style fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Style fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -522,17 +554,8 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/HttpTaskServer.java</url>
-          <line>270</line>
+          <line>277</line>
           <option name="timeStamp" value="86" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/test/HttpTaskServerTest.java</url>
-          <line>282</line>
-          <properties class="HttpTaskServerTest" method="createSubtask">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="87" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

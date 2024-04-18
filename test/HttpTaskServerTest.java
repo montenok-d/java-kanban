@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class HttpTaskServerTest {
     private HttpTaskServer httpTaskServer;
-    private final Gson gson = Managers.getGson();
+    private final Gson gson = httpTaskServer.getGson();
 
     private TaskManager taskManager;
 
