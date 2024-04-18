@@ -39,7 +39,7 @@ public class HttpTaskServer {
     }
 
     public void stop() {
-        server.stop(60);
+        server.stop(0);
         System.out.println("Server stopped");
     }
 
