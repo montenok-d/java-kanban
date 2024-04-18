@@ -312,8 +312,5 @@ public class HttpTaskServer {
         int epicId = epic.getTaskId();
         Subtask subtask = new Subtask("Саб 1", "Описание саб 1", 1, TaskStatus.NEW, 30, LocalDateTime.of(2024, 7, 5, 17, 40), epicId);
         taskManager.createSubtask(subtask);
-
-
-        //httpTaskServer.stop();
     }
 }
