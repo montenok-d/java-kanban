@@ -225,15 +225,21 @@ public class InMemoryTaskManager implements TaskManager, HistoryManager {
             remove(epic.getTaskId());
         }
         epics.clear();
-        removeAllSubtasks();
+        if (!subtasks.isEmpty()) {
+            removeAllSubtasks();
+        }
     }
 
     @Override
     public void removeAllSubtasks() {
         for (Subtask subtask : subtasks.values()) {
-            Epic epic = getEpic(subtask.getEpicId());
-            ArrayList<Subtask> epicSubtasks = getEpicSubtasks(epic.getTaskId());
-            epicSubtasks.remove(subtask.getTaskId());
+            if (!epics.isEmpty()) {
+                ArrayList<Integer> epicSubtasks = getEpic(subtask.getEpicId()).getSubtasksId();
+                if (epicSubtasks.contains(subtask.getTaskId())) {
+                    epicSubtasks.remove(Integer.valueOf(subtask.getTaskId()));
+                }
+            }
+            remove(subtask.getTaskId());
             prioritizedTasks.remove(subtask);
             remove(subtask.getTaskId());
         }
